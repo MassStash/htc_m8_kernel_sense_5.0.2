@@ -97,6 +97,7 @@ struct cpufreq_policy {
 	unsigned int		max;    /* in kHz */
 	unsigned int		cur;    /* in kHz, only needed if cpufreq
 					 * governors are used */
+	unsigned int            util;  /* CPU utilization at max frequency */
 	unsigned int		policy; /* see above */
 	struct cpufreq_governor	*governor; /* see below */
 
@@ -306,6 +307,8 @@ __ATTR(_name, 0444, show_##_name, NULL)
 static struct global_attr _name =		\
 __ATTR(_name, 0644, show_##_name, store_##_name)
 
+void cpufreq_notify_utilization(struct cpufreq_policy *policy,
+			unsigned int load);
 
 /*********************************************************************
  *                        CPUFREQ 2.6. INTERFACE                     *
