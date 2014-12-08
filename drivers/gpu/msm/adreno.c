@@ -2902,6 +2902,13 @@ static inline s64 adreno_ticks_to_us(u32 ticks, u32 freq)
 	return ticks / freq;
 }
 
+/**
+ * adreno_power_stats() - Reads the counters needed for freq decisions
+ * @device: Pointer to device whose counters are read
+ * @stats: Pointer to stats set that needs updating
+ * Power: The caller is expected to be in a clock enabled state as this
+ * function does reg reads
+ */
 static void adreno_power_stats(struct kgsl_device *device,
 				struct kgsl_power_stats *stats)
 {
@@ -2912,11 +2919,7 @@ static void adreno_power_stats(struct kgsl_device *device,
 	memset(stats, 0, sizeof(*stats));
 	memset(&busy_data, 0, sizeof(busy_data));
 
-
-	if (device->state != KGSL_STATE_ACTIVE)
-		return;
-
-	
+	/* Get the busy cycles counted since the counter was last reset */
 	adreno_dev->gpudev->busy_cycles(adreno_dev, &busy_data);
 
 	stats->busy_time = adreno_ticks_to_us(busy_data.gpu_busy,
