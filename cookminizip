@@ -5,8 +5,8 @@
 #Config Section below is where you set your paths-
 
 #Kernel path
-kernelDir1="/home/zaichron-lin/AndroidDev/htc_m8whl_kernel_sense_5.0.1" #( Example /home/user/path )
-kernelDir2="/home/zaichron-lin/AndroidDev/htc_m8whl_kernel_sense_5.0.1" #( Example /home/user/path )
+kernelDir1="/home/zaichron-lin/AndroidDev/htc_m8_kernel_sense_5.0.1" #( Example /home/user/path )
+kernelDir2="/home/zaichron-lin/AndroidDev/htc_m8_kernel_sense_5.0.1" #( Example /home/user/path )
 kernelDir3="Path to kernel 3" #( Example /home/user/path )
 #Toolchain path
 toolchainDir="/home/zaichron-lin/AndroidDev/AAtoolchains/linaro_toolchains_2014/arm-cortex_a15-linux-gnueabihf-linaro_4.9.3-2014.12" #( Example /home/user/path )
