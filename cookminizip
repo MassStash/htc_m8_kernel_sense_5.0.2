@@ -9,12 +9,12 @@ kernelDir1="/home/zaichron-lin/AndroidDev/htc_m8_kernel_sense_5.0.1" #( Example 
 kernelDir2="/home/zaichron-lin/AndroidDev/htc_m8_kernel_sense_5.0.1" #( Example /home/user/path )
 kernelDir3="Path to kernel 3" #( Example /home/user/path )
 #Toolchain path
-toolchainDir="/home/zaichron-lin/AndroidDev/AAtoolchains/linaro_toolchains_2014/arm-cortex_a15-linux-gnueabihf-linaro_4.9.3-2014.12" #( Example /home/user/path )
+toolchainDir="/home/zaichron-lin/AndroidDev/AAtoolchains/linaro_toolchains/Christopher83_arm-cortex_a15-linux-gnueabihf-linaro_4.9" #( Example /home/user/path )
 #Path where you would like the kernel to be outputed
 exportDir="/home/zaichron-lin/Desktop/Copy/AndroidDev/Kernz/m8/out" #( Example /home/user/Desktop )
 #Change default to what ever you like
-kernel1name="Hypernova-m8-1.3.7-Sense"
-kernel2name="Hypernova-m8-1.3.x-Sense"
+kernel1name="Hypernova-m8-1.4.1-Sense"
+kernel2name="Hypernova-m8-1.4.x-Sense"
 kernel3name="Default-3"
 #Do not edit
 now=$(date +"%m-%d-%Y-%H-%M")
