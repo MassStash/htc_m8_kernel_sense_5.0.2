@@ -63,7 +63,7 @@ select opt in $OPTIONS; do
     fi
 done
 
-cd /home/zaichron-lin/Desktop/Copy/AndroidDev/Kernz/m8/ElementalX-Sense-5.0.1
+cd /home/zaichron-lin/Desktop/Copy/AndroidDev/Kernz/m8/Hypernova-Sense-5.0.1
 
 echo
 echo
