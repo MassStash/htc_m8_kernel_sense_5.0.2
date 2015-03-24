@@ -5,13 +5,13 @@
 #Config Section below is where you set your paths-
 
 #Kernel path
-kernelDir1="/home/zaichron-lin/AndroidDev/htc_m8_kernel_sense_5.0.1" #( Example /home/user/path )
-kernelDir2="/home/zaichron-lin/AndroidDev/htc_m8_kernel_sense_5.0.1" #( Example /home/user/path )
+kernelDir1="/home/zaichron/AndroidDev/htc_m8_kernel_sense_5.0.1" #( Example /home/user/path )
+kernelDir2="/home/zaichron/AndroidDev/htc_m8_kernel_sense_5.0.1" #( Example /home/user/path )
 kernelDir3="Path to kernel 3" #( Example /home/user/path )
 #Toolchain path
-toolchainDir="/home/zaichron-lin/AndroidDev/AAtoolchains/linaro_toolchains/Christopher83_arm-cortex_a15-linux-gnueabihf-linaro_4.9" #( Example /home/user/path )
+toolchainDir="/home/zaichron/AndroidDev/AAtoolchains/linaro_toolchains/Christopher83_arm-cortex_a15-linux-gnueabihf-linaro_4.9" #( Example /home/user/path )
 #Path where you would like the kernel to be outputed
-exportDir="/home/zaichron-lin/Desktop/Copy/AndroidDev/Kernz/m8/out" #( Example /home/user/Desktop )
+exportDir="/home/zaichron/Desktop/Copy/AndroidDev/Kernz/m8/out" #( Example /home/user/Desktop )
 #Change default to what ever you like
 kernel1name="Hypernova-m8-1.4.5-Sense"
 kernel2name="Hypernova-m8-1.4.x-Sense"
@@ -78,19 +78,19 @@ echo
 echo
 echo
 echo " Moved zImage "
-cp arch/arm/boot/zImage /home/zaichron-lin/Desktop/Copy/AndroidDev/Kernz/m8/Hypernova-Sense-5.0.1
+cp arch/arm/boot/zImage /home/zaichron/Desktop/Copy/AndroidDev/Kernz/m8/Hypernova-Sense-5.0.1
 
 echo
 echo
 echo " Moved dt.img "
-cp arch/arm/boot/dt.img /home/zaichron-lin/Desktop/Copy/AndroidDev/Kernz/m8/Hypernova-Sense-5.0.1/dtb
+cp arch/arm/boot/dt.img /home/zaichron/Desktop/Copy/AndroidDev/Kernz/m8/Hypernova-Sense-5.0.1/dtb
 
 echo
 echo
 echo " Moving modules "
-find -iname *.ko | xargs cp -t /home/zaichron-lin/Desktop/Copy/AndroidDev/Kernz/m8/Hypernova-Sense-5.0.1/system/lib/modules
+find -iname *.ko | xargs cp -t /home/zaichron/Desktop/Copy/AndroidDev/Kernz/m8/Hypernova-Sense-5.0.1/system/lib/modules
 
-cd /home/zaichron-lin/Desktop/Copy/AndroidDev/Kernz/m8/Hypernova-Sense-5.0.1
+cd /home/zaichron/Desktop/Copy/AndroidDev/Kernz/m8/Hypernova-Sense-5.0.1
 
 echo
 echo
