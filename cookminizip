@@ -13,7 +13,7 @@ toolchainDir="/home/zaichron/AndroidDev/AAtoolchains/linaro_toolchains/Christoph
 #Path where you would like the kernel to be outputed
 exportDir="/home/zaichron/Desktop/Copy/AndroidDev/Kernz/m8/out" #( Example /home/user/Desktop )
 #Change default to what ever you like
-kernel1name="Hypernova-m8-1.4.5-Sense"
+kernel1name="Hypernova-m8-1.4.7-Sense"
 kernel2name="Hypernova-m8-1.4.x-Sense"
 kernel3name="Default-3"
 #Do not edit
@@ -62,11 +62,6 @@ select opt in $OPTIONS; do
      ./build
     fi
 done
-
-echo
-echo
-echo " Compiling dt.img brah "
-./dtb -o arch/arm/boot/dt.img -s 2048 -d "htc,project-id = <" -p ./scripts/dtc/ ./arch/arm/boot/
 
 echo
 echo
