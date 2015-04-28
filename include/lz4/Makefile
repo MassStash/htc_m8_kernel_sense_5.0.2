@@ -98,17 +98,20 @@ cmake:
 	@cd cmake_unofficial; cmake CMakeLists.txt; $(MAKE)
 
 gpptest: clean
-	export CC=g++; export CFLAGS="-O3 -Wall -Wextra -Wundef -Wshadow -Wcast-align -Werror"; $(MAKE) -e all
+	$(MAKE) all CC=g++ CFLAGS="-O3 -Wall -Wextra -Wundef -Wshadow -Wcast-align -Werror"
 
 clangtest: clean
-	export CFLAGS=-Werror; export CC=clang; $(MAKE) all
+	$(MAKE) all CC=clang CPPFLAGS="-Werror -Wconversion -Wno-sign-conversion"
+
+sanitize: clean
+	$(MAKE) test CC=clang CPPFLAGS="-g -fsanitize=undefined" FUZZER_TIME="-T1mn" NB_LOOPS=-i1
 
 staticAnalyze: clean
-	export CFLAGS=-g; scan-build -v $(MAKE) all
+	scan-build --status-bugs -v $(MAKE) all CFLAGS=-g
 
 armtest: clean
-	export CFLAGS=-Werror; export CC=arm-linux-gnueabi-gcc; cd lib; $(MAKE) -e all
-	export CFLAGS=-Werror; export CC=arm-linux-gnueabi-gcc; cd programs; $(MAKE) -e bins
+	cd lib; $(MAKE) -e all CC=arm-linux-gnueabi-gcc CPPFLAGS="-Werror"
+	cd programs; $(MAKE) -e bins CC=arm-linux-gnueabi-gcc CPPFLAGS="-Werror"
 
 streaming-examples:
 	cd examples; $(MAKE) -e test
