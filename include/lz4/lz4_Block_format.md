@@ -1,24 +1,25 @@
 LZ4 Block Format Description
 ============================
-Last revised: 2015-03-26.
+Last revised: 2015-05-07.
 Author : Yann Collet
 
 
-This small specification intents to provide enough information
-to anyone willing to produce LZ4-compatible compressed data blocks
+This specification is intended for developers
+willing to produce LZ4-compatible compressed data blocks
 using any programming language.
 
 LZ4 is an LZ77-type compressor with a fixed, byte-oriented encoding.
-The most important design principle behind LZ4 is simplicity.
-It helps to create an easy to read and maintain source code.
-It also helps later on for optimizations, compactness, and speed.
 There is no entropy encoder back-end nor framing layer.
-The latter is assumed to be handled by other parts of the system.
+The latter is assumed to be handled by other parts of the system (see [LZ4 Frame format]).
+This design is assumed to favor simplicity and speed.
+It helps later on for optimizations, compactness, and features.
 
-This document only describes the block format,
-not how the LZ4 compressor nor decompressor actually work.
+This document describes only the block format,
+not how the compressor nor decompressor actually work.
 The correctness of the decompressor should not depend
 on implementation details of the compressor, and vice versa.
+
+[LZ4 Frame format]: LZ4_Frame_format.md
 
 
 
@@ -45,17 +46,20 @@ There can be any number of bytes following the token. There is no "size limit".
 (Side note : this is why a not-compressible input block is expanded by 0.4%).
 
 Example 1 : A length of 48 will be represented as :
-- 15 : value for the 4-bits High field
-- 33 : (=48-15) remaining length to reach 48
+
+  - 15 : value for the 4-bits High field
+  - 33 : (=48-15) remaining length to reach 48
 
 Example 2 : A length of 280 will be represented as :
-- 15  : value for the 4-bits High field
-- 255 : following byte is maxed, since 280-15 >= 255
-- 10  : (=280 - 15 - 255) ) remaining length to reach 280
+
+  - 15  : value for the 4-bits High field
+  - 255 : following byte is maxed, since 280-15 >= 255
+  - 10  : (=280 - 15 - 255) ) remaining length to reach 280
 
 Example 3 : A length of 15 will be represented as :
-- 15 : value for the 4-bits High field
-- 0  : (=15-15) yes, the zero must be output
+
+  - 15 : value for the 4-bits High field
+  - 0  : (=15-15) yes, the zero must be output
 
 Following the token and optional length bytes, are the literals themselves.
 They are exactly as numerous as previously decoded (length of literals).
@@ -84,7 +88,7 @@ we output additional bytes, one at a time, with values ranging from 0 to 255.
 They are added to total to provide the final match length.
 A 255 value means there is another byte to read and add.
 There is no limit to the number of optional bytes that can be output this way.
-(This points towards a maximum achievable compression ratio of ~250).
+(This points towards a maximum achievable compression ratio of about 250).
 
 With the offset and the matchlength,
 the decoder can now proceed to copy the data from the already decoded buffer.
@@ -98,8 +102,7 @@ There are specific parsing rules to respect in order to remain compatible
 with assumptions made by the decoder :
 
 1. The last 5 bytes are always literals
-2. The last match must start at least 12 bytes before end of block.
-   
+2. The last match must start at least 12 bytes before end of block.   
    Consequently, a block with less than 13 bytes cannot be compressed.
 
 These rules are in place to ensure that the decoder

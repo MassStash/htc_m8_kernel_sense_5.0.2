@@ -67,6 +67,11 @@
 *****************************/
 #if defined(MSDOS) || defined(OS2) || defined(WIN32) || defined(_WIN32)
 #  include <io.h>       /* _isatty */
+#  if defined(__DJGPP__)
+#    include <unistd.h>
+#    define _isatty isatty
+#    define _fileno fileno
+#  endif
 #  ifdef __MINGW32__
    int _fileno(FILE *stream);   /* MINGW somehow forgets to include this prototype into <stdio.h> */
 #  endif
@@ -306,7 +311,7 @@ int main(int argc, char** argv)
         if (!strcmp(argument, "--no-frame-crc")) { LZ4IO_setStreamChecksumMode(0); continue; }
         if (!strcmp(argument, "--content-size")) { LZ4IO_setContentSize(1); continue; }
         if (!strcmp(argument, "--no-content-size")) { LZ4IO_setContentSize(0); continue; }
-        if (!strcmp(argument, "--sparse")) { LZ4IO_setSparseFile(1); continue; }
+        if (!strcmp(argument, "--sparse")) { LZ4IO_setSparseFile(2); continue; }
         if (!strcmp(argument, "--no-sparse")) { LZ4IO_setSparseFile(0); continue; }
         if (!strcmp(argument, "--verbose")) { displayLevel=4; continue; }
         if (!strcmp(argument, "--quiet")) { if (displayLevel) displayLevel--; continue; }
@@ -470,10 +475,10 @@ int main(int argc, char** argv)
     if (!decode) DISPLAYLEVEL(4, "Blocks size : %i KB\n", blockSize>>10);
 
     /* No input filename ==> use stdin */
-    if (multiple_inputs) input_filename = inFileNames[0], output_filename = (char*)(inFileNames[0]);
+    if (multiple_inputs) input_filename = inFileNames[0], output_filename = (const char*)(inFileNames[0]);
     if(!input_filename) { input_filename=stdinmark; }
 
-    /* Check if input or output are defined as console; trigger an error in this case */
+    /* Check if input is defined as console; trigger an error in this case */
     if (!strcmp(input_filename, stdinmark) && IS_CONSOLE(stdin) ) badusage();
 
     /* Check if benchmark is selected */
