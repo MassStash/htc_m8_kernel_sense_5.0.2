@@ -176,37 +176,29 @@ initrd_phys-$(CONFIG_ARCH_FSM9XXX)	:= 0x12000000
 	dtb-$(CONFIG_ARCH_MSMSAMARIUM)	+= msmsamarium-rumi.dtb
 
 # HTC dtbs
-ifeq ($(CONFIG_MACH_GLU_U)$(CONFIG_MACH_GLU_WLJ), y)
-	htc_dtb-$(CONFIG_ARCH_MSM8974)	+= msm8974-v2.0-1-glu-xa.dtb
-	htc_dtb-$(CONFIG_ARCH_MSM8974)	+= msm8974-v2.0-1-glu-xb.dtb
-	htc_dtb-$(CONFIG_ARCH_MSM8974)	+= msm8974-v2.2-glu-xb.dtb
-        htc_dtb-$(CONFIG_ARCH_MSM8974)	+= msm8974-v2.0-1-gluwlj-xa.dtb
-        htc_dtb-$(CONFIG_ARCH_MSM8974)	+= msm8974-v2.0-1-gluwlj-xb.dtb
-        htc_dtb-$(CONFIG_ARCH_MSM8974)	+= msm8974-v2.2-gluwlj-xb.dtb
-	htc_dtb-$(CONFIG_ARCH_MSM8974)  += msm8974-v2.0-1-glu2-xa.dtb
-	htc_dtb-$(CONFIG_ARCH_MSM8974)  += msm8974-v2.0-1-glu2wlj-xa.dtb
-	htc_dtb-$(CONFIG_ARCH_MSM8974)  += msm8974-v2.2-glu2-xa.dtb
-	htc_dtb-$(CONFIG_ARCH_MSM8974)  += msm8974-v2.2-glu2wlj-xa.dtb
-endif
 ifeq ($(CONFIG_MACH_M8), y)
+	# Support for HTC MSM8974 M8 (GSM)
 	htc_dtb-$(CONFIG_ARCH_MSM8974)  += msm8974pro-ab-pm8941-m8.dtb
 	htc_dtb-$(CONFIG_ARCH_MSM8974)  += msm8974pro-ab-pm8941-m8-xb.dtb
 	htc_dtb-$(CONFIG_ARCH_MSM8974)  += msm8974pro-ab-pm8941-m8-xd.dtb
 	htc_dtb-$(CONFIG_ARCH_MSM8974)  += msm8974pro-ab-pm8941-m8-xe.dtb
 	htc_dtb-$(CONFIG_ARCH_MSM8974)  += msm8974pro-ab-pm8941-m8-xf.dtb
 
+	# Support for HTC MSM8974 Verizon M8 (CDMA)
 	htc_dtb-$(CONFIG_ARCH_MSM8974)  += msm8974pro-ab-pm8941-m8wl.dtb
 	htc_dtb-$(CONFIG_ARCH_MSM8974)  += msm8974pro-ab-pm8941-m8wl-xb.dtb
 	htc_dtb-$(CONFIG_ARCH_MSM8974)  += msm8974pro-ab-pm8941-m8wl-xc.dtb
 	htc_dtb-$(CONFIG_ARCH_MSM8974)  += msm8974pro-ab-pm8941-m8wl-xd.dtb
 	htc_dtb-$(CONFIG_ARCH_MSM8974)  += msm8974pro-ab-pm8941-m8wl-xe.dtb
 
+	# Support for HTC MSM8974 Sprint M8 (CDMA)
 	htc_dtb-$(CONFIG_ARCH_MSM8974)  += msm8974pro-ab-pm8941-m8whl.dtb
 	htc_dtb-$(CONFIG_ARCH_MSM8974)  += msm8974pro-ab-pm8941-m8whl-xb.dtb
 	htc_dtb-$(CONFIG_ARCH_MSM8974)  += msm8974pro-ab-pm8941-m8whl-xd.dtb
 	htc_dtb-$(CONFIG_ARCH_MSM8974)  += msm8974pro-ab-pm8941-m8whl-xe.dtb
 	htc_dtb-$(CONFIG_ARCH_MSM8974)  += msm8974pro-ab-pm8941-m8whl-xf.dtb
 
+	# Support for HTC MSM8974 Dual SIM M8 (GSM)
 	htc_dtb-$(CONFIG_ARCH_MSM8974)  += msm8974pro-ab-pm8941-m8dug.dtb
 	htc_dtb-$(CONFIG_ARCH_MSM8974)  += msm8974pro-ab-pm8941-m8dug-xb.dtb
 	htc_dtb-$(CONFIG_ARCH_MSM8974)  += msm8974pro-ab-pm8941-m8dug-xc.dtb
