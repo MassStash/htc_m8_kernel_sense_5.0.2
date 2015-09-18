@@ -73,12 +73,12 @@ echo
 echo
 echo
 echo " Moved zImage "
-cp arch/arm/boot/zImage /home/zaichron-lin/Desktop/Copy/AndroidDev/Kernz/m8/Hypernova-Sense-5.0.2
+cp arch/arm/boot/zImage /home/zaichron-lin/Desktop/Copy/AndroidDev/Kernz/m8/Hypernova-Sense-5.0.2/anykernel
 
 echo
 echo
 echo " Moved dt.img "
-cp arch/arm/boot/dt.img /home/zaichron-lin/Desktop/Copy/AndroidDev/Kernz/m8/Hypernova-Sense-5.0.2/dtb
+cp arch/arm/boot/dt.img /home/zaichron-lin/Desktop/Copy/AndroidDev/Kernz/m8/Hypernova-Sense-5.0.2/anykernel/dtb
 
 echo
 echo
