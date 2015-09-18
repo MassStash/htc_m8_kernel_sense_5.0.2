@@ -13,8 +13,8 @@ toolchainDir="/home/zaichron-lin/AndroidDev/AAtoolchains/linaro_toolchains/Chris
 #Path where you would like the kernel to be outputed
 exportDir="/home/zaichron-lin/Desktop/Copy/AndroidDev/Kernz/m8/out" #( Example /home/user/Desktop )
 #Change default to what ever you like
-kernel1name="ElementalX-Port-m8-4.05-Sense"
-kernel2name="ElementalX-Port-m8-4.xx-Sense"
+kernel1name="Hypernova-m8-1.6.7-Sense"
+kernel2name="Hypernova-m8-1.x.x-Sense"
 kernel3name="Default-3"
 #Do not edit
 now=$(date +"%m-%d-%Y-%H-%M")
@@ -73,19 +73,19 @@ echo
 echo
 echo
 echo " Moved zImage "
-cp arch/arm/boot/zImage /home/zaichron-lin/Desktop/Copy/AndroidDev/Kernz/m8/ElementalX-Sense-5.0.2
+cp arch/arm/boot/zImage /home/zaichron-lin/Desktop/Copy/AndroidDev/Kernz/m8/Hypernova-Sense-5.0.2/anykernel
 
 echo
 echo
 echo " Moved dt.img "
-cp arch/arm/boot/dt.img /home/zaichron-lin/Desktop/Copy/AndroidDev/Kernz/m8/ElementalX-Sense-5.0.2/dtb
+cp arch/arm/boot/dt.img /home/zaichron-lin/Desktop/Copy/AndroidDev/Kernz/m8/Hypernova-Sense-5.0.2/anykernel/dtb
 
 echo
 echo
 echo " Moving modules "
-find -iname *.ko | xargs cp -t /home/zaichron-lin/Desktop/Copy/AndroidDev/Kernz/m8/ElementalX-Sense-5.0.2/system/lib/modules
+find -iname *.ko | xargs cp -t /home/zaichron-lin/Desktop/Copy/AndroidDev/Kernz/m8/Hypernova-Sense-5.0.2/system/lib/modules
 
-cd /home/zaichron-lin/Desktop/Copy/AndroidDev/Kernz/m8/ElementalX-Sense-5.0.2
+cd /home/zaichron-lin/Desktop/Copy/AndroidDev/Kernz/m8/Hypernova-Sense-5.0.2
 
 echo
 echo
